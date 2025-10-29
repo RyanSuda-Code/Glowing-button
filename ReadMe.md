@@ -27,6 +27,16 @@ This project was created as part of a tutorial I followed on YouTube. It helped 
 
 The buttons feature a glowing effect when hovered, along with a smooth pulsing animation.
 
+An easy way to remember absolute and relative positioning is by thinking of it this way:
+	•	Relative: Your phone is on the table. You slide it a little to the left or right, everything else on the table stays in place, and its original spot is still “occupied” in a sense.
+	•	Absolute: You pick up the phone and place it somewhere else, maybe even off the table. It doesn’t push or bump any of the items on the table because it’s no longer “in the table’s layout.”
+With absolute positioning, the element (your “phone”) is basically floating:
+	•	It can go anywhere relative to its nearest positioned ancestor (or the page if none exists).
+	•	It can cover other elements because it’s taken out of the normal flow.
+	•	It can also go behind elements depending on z-index, which controls stacking order.
+
+It's like a floating object that can move freely, overlap things, or hide behind them—without disturbing the rest of the layout.
+
 ---
 
 ## Demo
@@ -59,7 +69,3 @@ This project was created by following a YouTube tutorial on glowing buttons.
 The purpose of this project is to practice CSS animations and pseudo-elements while building visually appealing buttons.
 
 ---
-
-## License
-
-This project is for learning purposes only.
