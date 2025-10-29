@@ -1,0 +1,159 @@
+body {
+    font-family: "Bitcount Grid Single", system-ui;
+    background-color: hsl(240, 4%, 7%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.btn {
+    font-family: "bitcount grid single", system-ui;
+    font-size: 25px;
+    color: #20F074;
+    height: 60px;
+    width: 250px;
+    border-radius: 90px;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    z-index: 0;
+    position: relative;
+}
+
+.btn::after { /*background layer (dark base).*/
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    border-radius: 90px;
+    z-index: -1;
+    left: 0;
+    top: 0;
+}
+
+
+
+.btn::before { /*glow layer, initially invisible.*/
+    content: "";
+    position: absolute;
+    background: #20F074;
+    top: -2px;
+    left: -2px;
+    background-size: 500%;
+    z-index: -1;
+    width: calc(100% + 4px);/* 4px to cover the border */ 
+    height: calc(100% + 4px);/* 4px to cover the border */
+    filter: blur(8px);
+    border-radius: 90px;
+    /* Animation */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    ;
+}
+
+@keyframes pulse { /*defines the pulsing animation.*/
+    0% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+}
+
+
+/* On Hover Effect */
+.btn:hover::before { /*shows the glow and starts the pulsing when hovering.*/
+    opacity: 1;
+    animation: pulse 2s infinite ease-in-out
+}
+
+.btn:active:after{ 
+    background: transparent;
+}
+
+.btn:active {
+    color: black;
+    font-weight: bold;
+}
+
+/* Second Button Style */
+.btn2 {
+    font-family: "bitcount grid single", system-ui;
+    font-size: 25px;
+    color: #20F074;
+    height: 60px;
+    width: 250px;
+    border-radius: 90px;
+    background-color: black;
+    color: white;
+    border: none;
+    z-index: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.btn2::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    border-radius: 90px;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.btn2::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(45deg, #FF8F8F, #FFF1CB, #C2E2FA, #B7A3E3, #77BEF0, #FF894F, #FFCB61, #EA5B6F);
+    border-radius: 90px;
+    top: -8px;
+    left: -8px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 16px);
+    height: calc(100% + 16px);
+    filter: blur(8px);
+    /*animation*/
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+}
+
+@keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+
+.btn2:hover::before {
+    opacity: 1;
+}
+
+.btn2:active:after {
+    background: transparent;
+}
+
+.btn2:active {
+    color: black;
+    font-weight: bold;
+}
